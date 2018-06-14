@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="http://strcpy.net/libevent3.png" alt="libevent logo"/>
+  <img src="https://strcpy.net/libevent3.png" alt="libevent logo"/>
 </p>
 
 
@@ -7,7 +7,6 @@
 [![Appveyor Win32 Build Status](https://ci.appveyor.com/api/projects/status/github/libevent/libevent?branch=master&svg=true)](https://ci.appveyor.com/project/nmathewson/libevent)
 [![Travis Build Status](https://travis-ci.org/libevent/libevent.svg?branch=master)](https://travis-ci.org/libevent/libevent)
 [![Coverage Status](https://coveralls.io/repos/github/libevent/libevent/badge.svg)](https://coveralls.io/github/libevent/libevent)
-[![Join the chat at https://gitter.im/libevent/libevent](https://badges.gitter.im/libevent/libevent.svg)](https://gitter.im/libevent/libevent?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 
@@ -27,8 +26,20 @@ The following Libevent specific Cmake variables are as follows (the values being
 the default).
 
 ```
+# Installation directory for executables
+EVENT_INSTALL_BIN_DIR:PATH=bin
+
 # Installation directory for CMake files
 EVENT_INSTALL_CMAKE_DIR:PATH=lib/cmake/libevent
+
+## Installation directory for header files
+EVENT_INSTALL_INCLUDE_DIR:PATH=include
+
+## Installation directory for libraries
+EVENT_INSTALL_LIB_DIR:PATH=lib
+
+## Define if libevent should be built with shared libraries instead of archives
+EVENT__BUILD_SHARED_LIBRARIES:BOOL=OFF
 
 # Enable running gcov to get a test coverage report (only works with
 # GCC/CLang). Make sure to enable -DCMAKE_BUILD_TYPE=Debug as well.
@@ -66,6 +77,9 @@ EVENT__ENABLE_VERBOSE_DEBUG:BOOL=OFF
 # on the the cross compilation target to verify that it works. See cmake
 # documentation for try_run for more details
 EVENT__FORCE_KQUEUE_CHECK:BOOL=OFF
+
+# set EVENT_STAGE_VERSION
+EVENT__STAGE_VERSION:STRING=beta
 ```
 
 __More variables can be found by running `cmake -LAH <sourcedir_path>`__
@@ -168,6 +182,11 @@ $ cmake -LH ..
 
 CMake also provides a GUI that lets you specify the source directory and output (binary) directory
 that the build should be placed in.
+
+### OpenSSL support
+
+To build Libevent with OpenSSL support you will need to have OpenSSL binaries available when building,
+these can be found here: <http://www.openssl.org/related/binaries.html>
 
 # 2. USEFUL LINKS:
 

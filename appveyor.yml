@@ -1,4 +1,4 @@
-version: 2.2.0.{build}
+version: 2.1.8.{build}
 
 os: Visual Studio 2015
 
@@ -29,6 +29,8 @@ environment:
       EVENT_CMAKE_OPTIONS: "-DEVENT__DISABLE_DEBUG_MODE=ON"
     - EVENT_BUILD_METHOD: "cmake"
       EVENT_CMAKE_OPTIONS: "-DEVENT__DISABLE_MM_REPLACEMENT=ON"
+    - EVENT_BUILD_METHOD: "cmake"
+      EVENT_CMAKE_OPTIONS: "-DEVENT__ENABLE_VERBOSE_DEBUG=ON"
     - EVENT_BUILD_METHOD: "cmake"
       EVENT_CMAKE_OPTIONS: "-DCMAKE_C_FLAGS='-DUNICODE -D_UNICODE'"
 init:
